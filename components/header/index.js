@@ -6,15 +6,15 @@ import { BsMoon, BsSun } from 'react-icons/bs'
 export default function Header() {
 
   const { theme, setTheme } = useTheme();
-  const [darkMode, setDarkMode] = useState(theme === 'dark')
+  const [darkMode, setDarkMode] = useState(theme === 'light')
 
   const switchTheme = () => {
     setDarkMode(!darkMode)
-    setTheme(darkMode ? 'light' : 'dark')
+    setTheme(darkMode ? 'dark' : 'light')
   }
 
   useEffect(() => {
-    setDarkMode(theme === 'dark')
+    setDarkMode(theme === 'light')
   }, [theme])
 
   return (
@@ -23,10 +23,10 @@ export default function Header() {
         <h3>Where in the world?</h3>
         <button onClick={switchTheme} className='flex items-center'>
           {
-            darkMode ? <span ><BsSun /></span> : <span><BsMoon /></span>
+            darkMode ?<span><BsMoon /></span> :   <span ><BsSun /></span>
           }
 
-          <span className='pl-3 dark:text-white text-very-dark-blue-light-text'> {darkMode ? 'Light' : 'Dark'} Mode</span>
+          <span className='pl-3 dark:text-white text-very-dark-blue-light-text'> {darkMode ? 'Dark' : 'Light'} Mode</span>
         </button>
       </div>
     </div>
