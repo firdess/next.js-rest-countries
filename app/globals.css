@@ -1,27 +1,42 @@
 @tailwind base;
+
+p {
+  @apply text-very-dark-blue-light-text text-sm dark:text-white
+}
+
 @tailwind components;
+
+.subtitle {
+  @apply text-sm font-semibold text-very-dark-blue-bg leading-3 dark:text-white
+}
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid var(--very-dark-blue-bg);
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+  }
+
+  @keyframes rotation {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+  } 
+
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --dark-blue-element: hsl(209, 23%, 22%);
+  --very-dark-blue-bg: hsl(207, 26%, 17%);
+  --very-dark-blue-light-text: hsl(200, 15%, 8%);
+  --dark-gray-light-input: hsl(0, 0%, 52%);
+  --very-light-gray-bg: hsl(0, 0%, 98%);
+  --white: hsl(0, 0%, 100%);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
